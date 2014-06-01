@@ -1,0 +1,6 @@
+<h1>Invoices</h1>
+<ul>
+  <% @invoices.each do |invoice| %>
+    <li><%= link_to invoice.number, sender_invoice_invoice_path(invoice), method: :post %></li>
+  <% end %>
+</ul>
