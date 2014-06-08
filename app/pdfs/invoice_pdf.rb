@@ -59,7 +59,7 @@ private
   end
 
   def invoice_total
-    move_down 200
+    move_down 50
     stroke_horizontal_rule
     pad(5) { text "Total da Dívida: #{price(@invoice.total)}", size: 18, style: :bold }
   end

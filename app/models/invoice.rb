@@ -22,6 +22,10 @@ class Invoice < ActiveRecord::Base
 
   before_create :create_unique_identifier
 
+  validates_presence_of :customer_id
+
+  accepts_nested_attributes_for :invoice_items, allow_destroy: true
+
   def total
     self.invoice_items.each.inject(0) { |sum, i| sum += i.amount }
   end

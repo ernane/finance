@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'pry-meta', group: :development
+gem 'thin'
 gem 'annotate', ">=2.6.0"
 gem 'prawn'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
-

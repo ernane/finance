@@ -1,0 +1,14 @@
+<fieldset>
+  <legend>Invoice Item</legend>
+  <%= f.label :description %><br />
+  <%= f.text_field :description %><br />
+
+  <%= f.label :quantity %><br />
+  <%= f.number_field :quantity %><br />
+
+  <%= f.label :unitary_cost %><br />
+  <%= f.text_field :unitary_cost %><br />
+
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Item" %>
+</fieldset>
