@@ -5,11 +5,37 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = @invoice = Invoice.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = InvoicePdf.new(@invoice)
+        send_data pdf.render, filename: "invoice_#{@invoice.number}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   def new
     @invoice = Invoice.new
     @invoice.invoice_items.build
+  end
+
+  def edit
+    @invoice = Invoice.find(params[:id])
+  end
+
+  def update
+    @invoice = Invoice.find(params[:id])
+
+    if @invoice.update(invoice_params)
+      flash[:notice] = "Invoice has been updated."
+      redirect_to @invoice
+    else
+      flash[:alert] = "Invoice has not been updated."
+      render action: "edit"
+    end
   end
 
   def create

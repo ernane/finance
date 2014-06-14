@@ -75,6 +75,4 @@ private
   def price(number)
     number_to_currency(number)
   end
-
-  # InvoicePdf.new(Invoice.last)
 end
